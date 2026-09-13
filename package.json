@@ -1,0 +1,32 @@
+{
+  "name": "memory-layer",
+  "version": "1.0.0",
+  "description": "AI memory layer with confidence, freshness, and forgetting",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ai",
+    "memory",
+    "confidence",
+    "forgetting"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@types/node": "^22.20.2",
+    "express": "^5.2.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2",
+    "uuid": "^14.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/uuid": "^10.0.0"
+  }
+}
