@@ -1,0 +1,16 @@
+name = "memory-layer"
+main = "worker.ts"
+compatibility_date = "2026-09-13"
+
+[build]
+command = "npm run build"
+
+[build.upload]
+format = "modules"
+
+[[kv_namespaces]]
+binding = "MEMORY_STORE"
+id = "edc30299161d4afc8e882882f8728d5c"
+
+[vars]
+NODE_ENV = "production"
