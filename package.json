@@ -4,9 +4,9 @@
   "description": "AI memory layer with confidence, freshness, and forgetting",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node dist/src/server.js",
     "dev": "ts-node src/server.ts",
-    "test": "node dist/test.js",
+    "test": "node dist/src/test.js",
     "vercel-build": "npm run build"
   },
   "keywords": [

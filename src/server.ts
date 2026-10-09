@@ -1,13 +1,20 @@
 import express from 'express'
 import { MemoryStore } from './core/MemoryStore'
 import path from 'path'
+import fs from 'fs'
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const memoryStore = new MemoryStore()
 
+const publicDir = fs.existsSync(path.join(__dirname, 'public'))
+  ? path.join(__dirname, 'public')
+  : fs.existsSync(path.join(__dirname, '../../src/public'))
+    ? path.join(__dirname, '../../src/public')
+    : path.join(process.cwd(), 'src/public')
+
 app.use(express.json())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(publicDir))
 
 // API: Write new memory
 app.post('/api/memory', async (req, res) => {
@@ -61,7 +68,7 @@ app.get('/api/memory/stats', (req, res) => {
 
 // Serve the frontend
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  res.sendFile(path.join(publicDir, 'index.html'))
 })
 
 app.listen(port, () => {
